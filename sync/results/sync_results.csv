@@ -1,0 +1,7 @@
+collection,documents,validated_at
+product_catalog,65902,2026-06-23 04:33:07.017622
+product_reviews,104672,2026-06-23 04:33:07.108886
+user_behavior,113155,2026-06-23 04:33:07.198484
+recommendations,1000,2026-06-23 04:33:07.257319
+search_logs,5000,2026-06-23 04:33:07.318180
+sync_audit,1,2026-06-23 04:33:07.374453

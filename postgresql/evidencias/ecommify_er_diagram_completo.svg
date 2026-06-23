@@ -1,0 +1,230 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2050" height="1700" viewBox="0 0 2050 1700">
+<rect width="100%" height="100%" fill="white"/>
+<style><![CDATA[
+text{font-family:Arial, sans-serif;} .field{font-family:Consolas, "Courier New", monospace;}
+]]></style>
+<text x="60" y="42" font-size="24" font-weight="bold">Ecommify - Diagrama Entidad Relación Completo</text>
+<text x="60" y="66" font-size="14">DDL PostgreSQL - atributos completos, claves, restricciones principales y relaciones rectas/ortogonales</text>
+<path d="M490,215 L560,195" fill="none" stroke="#333" stroke-width="1.4"/>
+<text x="496" y="209.0" font-size="12" font-weight="bold">1</text>
+<text x="532" y="189.0" font-size="12" font-weight="bold">N</text>
+<path d="M490,215 L520,250 L560,461" fill="none" stroke="#333" stroke-width="1.4"/>
+<text x="496" y="209.0" font-size="12" font-weight="bold">1</text>
+<text x="532" y="455.0" font-size="12" font-weight="bold">0..1</text>
+<path d="M490,215 L520,220 L1020,220 L1060,267" fill="none" stroke="#333" stroke-width="1.4"/>
+<text x="496" y="209.0" font-size="12" font-weight="bold">1</text>
+<text x="1032" y="261.0" font-size="12" font-weight="bold">N</text>
+<path d="M275,80 L275,35 L1775,35 L1775,80" fill="none" stroke="#333" stroke-width="1.4"/>
+<text x="281.0" y="74" font-size="12" font-weight="bold">1</text>
+<text x="1781.0" y="74" font-size="12" font-weight="bold">N</text>
+<path d="M490,755 L560,861" fill="none" stroke="#333" stroke-width="1.4"/>
+<text x="496" y="749.0" font-size="12" font-weight="bold">1</text>
+<text x="532" y="855.0" font-size="12" font-weight="bold">N</text>
+<path d="M775,1032 L775,1060" fill="none" stroke="#333" stroke-width="1.4"/>
+<text x="781.0" y="1026" font-size="12" font-weight="bold">1</text>
+<text x="781.0" y="1054" font-size="12" font-weight="bold">0..1</text>
+<path d="M990,861 L1020,770 L1060,693" fill="none" stroke="#333" stroke-width="1.4"/>
+<text x="996" y="855.0" font-size="12" font-weight="bold">1</text>
+<text x="1032" y="687.0" font-size="12" font-weight="bold">N</text>
+<path d="M990,861 L1020,820 L1520,820 L1560,655" fill="none" stroke="#333" stroke-width="1.4"/>
+<text x="996" y="855.0" font-size="12" font-weight="bold">1</text>
+<text x="1532" y="649.0" font-size="12" font-weight="bold">N</text>
+<path d="M775,690 L775,650 L1775,650 L1775,422" fill="none" stroke="#333" stroke-width="1.4"/>
+<text x="781.0" y="684" font-size="12" font-weight="bold">1</text>
+<text x="1781.0" y="416" font-size="12" font-weight="bold">N</text>
+<path d="M990,461 L1060,693" fill="none" stroke="#333" stroke-width="1.4"/>
+<text x="996" y="455.0" font-size="12" font-weight="bold">1</text>
+<text x="1032" y="687.0" font-size="12" font-weight="bold">N</text>
+<path d="M1490,267 L1520,300 L1560,655" fill="none" stroke="#333" stroke-width="1.4"/>
+<text x="1496" y="261.0" font-size="12" font-weight="bold">1</text>
+<text x="1532" y="649.0" font-size="12" font-weight="bold">N</text>
+<path d="M1275,414 L1275,900 L1275,930" fill="none" stroke="#333" stroke-width="1.4"/>
+<text x="1281.0" y="408" font-size="12" font-weight="bold">1</text>
+<text x="1281.0" y="924" font-size="12" font-weight="bold">N</text>
+<path d="M1490,267 L1520,390 L1560,1059" fill="none" stroke="#333" stroke-width="1.4"/>
+<text x="1496" y="261.0" font-size="12" font-weight="bold">1</text>
+<text x="1532" y="1053.0" font-size="12" font-weight="bold">N</text>
+<path d="M1490,267 L1560,251" fill="none" stroke="#333" stroke-width="1.4"/>
+<text x="1496" y="261.0" font-size="12" font-weight="bold">1</text>
+<text x="1532" y="245.0" font-size="12" font-weight="bold">N</text>
+<rect x="60" y="80" width="430" height="270" rx="8" fill="#ffffff" stroke="#222" stroke-width="1.5"/>
+<rect x="60" y="80" width="430" height="34" rx="8" fill="#eeeeee" stroke="#222" stroke-width="1.5"/>
+<text x="72" y="103" font-size="14" font-weight="bold">users</text>
+<text class="field" x="72" y="140" font-size="11.5">id BIGSERIAL PK</text>
+<text class="field" x="72" y="164" font-size="11.5">uuid UUID UK DEFAULT uuid_generate_v4()</text>
+<text class="field" x="72" y="188" font-size="11.5">name VARCHAR(100) NOT NULL</text>
+<text class="field" x="72" y="212" font-size="11.5">email VARCHAR(150) UK NOT NULL</text>
+<text class="field" x="72" y="236" font-size="11.5">password_hash TEXT NOT NULL</text>
+<text class="field" x="72" y="260" font-size="11.5">phone VARCHAR(20)</text>
+<text class="field" x="72" y="284" font-size="11.5">created_at TIMESTAMP NOT NULL DEFAULT NOW()</text>
+<text class="field" x="72" y="308" font-size="11.5">status VARCHAR(20) NOT NULL DEFAULT &#x27;ACTIVE&#x27;</text>
+<text class="field" x="72" y="332" font-size="11.5">CHK status IN ACTIVE, INACTIVE, BLOCKED, DELETED</text>
+<rect x="560" y="60" width="430" height="270" rx="8" fill="#ffffff" stroke="#222" stroke-width="1.5"/>
+<rect x="560" y="60" width="430" height="34" rx="8" fill="#eeeeee" stroke="#222" stroke-width="1.5"/>
+<text x="572" y="83" font-size="14" font-weight="bold">addresses</text>
+<text class="field" x="572" y="120" font-size="11.5">id BIGSERIAL PK</text>
+<text class="field" x="572" y="144" font-size="11.5">user_id BIGINT FK users(id) ON DELETE CASCADE</text>
+<text class="field" x="572" y="168" font-size="11.5">city VARCHAR(100) NOT NULL</text>
+<text class="field" x="572" y="192" font-size="11.5">country VARCHAR(100) NOT NULL</text>
+<text class="field" x="572" y="216" font-size="11.5">address TEXT NOT NULL</text>
+<text class="field" x="572" y="240" font-size="11.5">postal_code VARCHAR(20)</text>
+<text class="field" x="572" y="264" font-size="11.5">location GEOGRAPHY(POINT, 4326)</text>
+<text class="field" x="572" y="288" font-size="11.5">address_data address_type</text>
+<text class="field" x="572" y="312" font-size="11.5">created_at TIMESTAMP NOT NULL DEFAULT NOW()</text>
+<rect x="60" y="680" width="430" height="150" rx="8" fill="#ffffff" stroke="#222" stroke-width="1.5"/>
+<rect x="60" y="680" width="430" height="34" rx="8" fill="#eeeeee" stroke="#222" stroke-width="1.5"/>
+<text x="72" y="703" font-size="14" font-weight="bold">categories</text>
+<text class="field" x="72" y="740" font-size="11.5">id BIGSERIAL PK</text>
+<text class="field" x="72" y="764" font-size="11.5">name VARCHAR(150) UK NOT NULL</text>
+<text class="field" x="72" y="788" font-size="11.5">description TEXT</text>
+<text class="field" x="72" y="812" font-size="11.5">created_at TIMESTAMP NOT NULL DEFAULT NOW()</text>
+<rect x="560" y="690" width="430" height="342" rx="8" fill="#ffffff" stroke="#222" stroke-width="1.5"/>
+<rect x="560" y="690" width="430" height="34" rx="8" fill="#eeeeee" stroke="#222" stroke-width="1.5"/>
+<text x="572" y="713" font-size="14" font-weight="bold">products</text>
+<text class="field" x="572" y="750" font-size="11.5">id BIGSERIAL PK</text>
+<text class="field" x="572" y="774" font-size="11.5">uuid UUID UK DEFAULT uuid_generate_v4()</text>
+<text class="field" x="572" y="798" font-size="11.5">name VARCHAR(200) NOT NULL</text>
+<text class="field" x="572" y="822" font-size="11.5">description TEXT</text>
+<text class="field" x="572" y="846" font-size="11.5">price NUMERIC(12,2) NOT NULL</text>
+<text class="field" x="572" y="870" font-size="11.5">category_id BIGINT FK categories(id)</text>
+<text class="field" x="572" y="894" font-size="11.5">attributes JSONB</text>
+<text class="field" x="572" y="918" font-size="11.5">tags TEXT[]</text>
+<text class="field" x="572" y="942" font-size="11.5">created_at TIMESTAMP NOT NULL DEFAULT NOW()</text>
+<text class="field" x="572" y="966" font-size="11.5">status VARCHAR(20) NOT NULL DEFAULT &#x27;ACTIVE&#x27;</text>
+<text class="field" x="572" y="990" font-size="11.5">CHK price &gt;= 0</text>
+<text class="field" x="572" y="1014" font-size="11.5">CHK status IN ACTIVE, INACTIVE, DELETED</text>
+<rect x="560" y="1060" width="430" height="246" rx="8" fill="#ffffff" stroke="#222" stroke-width="1.5"/>
+<rect x="560" y="1060" width="430" height="34" rx="8" fill="#eeeeee" stroke="#222" stroke-width="1.5"/>
+<text x="572" y="1083" font-size="14" font-weight="bold">inventories</text>
+<text class="field" x="572" y="1120" font-size="11.5">id BIGSERIAL PK</text>
+<text class="field" x="572" y="1144" font-size="11.5">product_id BIGINT FK/UK products(id) ON DELETE CASCADE</text>
+<text class="field" x="572" y="1168" font-size="11.5">stock INTEGER NOT NULL DEFAULT 0</text>
+<text class="field" x="572" y="1192" font-size="11.5">reserved_stock INTEGER NOT NULL DEFAULT 0</text>
+<text class="field" x="572" y="1216" font-size="11.5">last_update TIMESTAMP NOT NULL DEFAULT NOW()</text>
+<text class="field" x="572" y="1240" font-size="11.5">CHK stock &gt;= 0</text>
+<text class="field" x="572" y="1264" font-size="11.5">CHK reserved_stock &gt;= 0</text>
+<text class="field" x="572" y="1288" font-size="11.5">CHK reserved_stock &lt;= stock</text>
+<rect x="560" y="350" width="430" height="222" rx="8" fill="#ffffff" stroke="#222" stroke-width="1.5"/>
+<rect x="560" y="350" width="430" height="34" rx="8" fill="#eeeeee" stroke="#222" stroke-width="1.5"/>
+<text x="572" y="373" font-size="14" font-weight="bold">carts</text>
+<text class="field" x="572" y="410" font-size="11.5">id BIGSERIAL PK</text>
+<text class="field" x="572" y="434" font-size="11.5">user_id BIGINT FK/UK users(id) ON DELETE CASCADE</text>
+<text class="field" x="572" y="458" font-size="11.5">status VARCHAR(20) NOT NULL DEFAULT &#x27;ACTIVE&#x27;</text>
+<text class="field" x="572" y="482" font-size="11.5">created_at TIMESTAMP NOT NULL DEFAULT NOW()</text>
+<text class="field" x="572" y="506" font-size="11.5">updated_at TIMESTAMP NOT NULL DEFAULT NOW()</text>
+<text class="field" x="572" y="530" font-size="11.5">expires_at TIMESTAMP</text>
+<text class="field" x="572" y="554" font-size="11.5">CHK status IN ACTIVE, EXPIRED, CONVERTED, DELETED</text>
+<rect x="1060" y="570" width="430" height="246" rx="8" fill="#ffffff" stroke="#222" stroke-width="1.5"/>
+<rect x="1060" y="570" width="430" height="34" rx="8" fill="#eeeeee" stroke="#222" stroke-width="1.5"/>
+<text x="1072" y="593" font-size="14" font-weight="bold">cart_items</text>
+<text class="field" x="1072" y="630" font-size="11.5">id BIGSERIAL PK</text>
+<text class="field" x="1072" y="654" font-size="11.5">cart_id BIGINT FK carts(id) ON DELETE CASCADE</text>
+<text class="field" x="1072" y="678" font-size="11.5">product_id BIGINT FK products(id)</text>
+<text class="field" x="1072" y="702" font-size="11.5">quantity INTEGER NOT NULL</text>
+<text class="field" x="1072" y="726" font-size="11.5">unit_price NUMERIC(12,2) NOT NULL</text>
+<text class="field" x="1072" y="750" font-size="11.5">added_at TIMESTAMP NOT NULL DEFAULT NOW()</text>
+<text class="field" x="1072" y="774" font-size="11.5">CHK quantity &gt; 0</text>
+<text class="field" x="1072" y="798" font-size="11.5">CHK unit_price &gt;= 0</text>
+<rect x="1060" y="120" width="430" height="294" rx="8" fill="#ffffff" stroke="#222" stroke-width="1.5"/>
+<rect x="1060" y="120" width="430" height="34" rx="8" fill="#eeeeee" stroke="#222" stroke-width="1.5"/>
+<text x="1072" y="143" font-size="14" font-weight="bold">orders</text>
+<text class="field" x="1072" y="180" font-size="11.5">id BIGSERIAL PK</text>
+<text class="field" x="1072" y="204" font-size="11.5">user_id BIGINT FK users(id)</text>
+<text class="field" x="1072" y="228" font-size="11.5">total NUMERIC(12,2) NOT NULL</text>
+<text class="field" x="1072" y="252" font-size="11.5">status VARCHAR(30) NOT NULL</text>
+<text class="field" x="1072" y="276" font-size="11.5">created_at TIMESTAMP PK NOT NULL DEFAULT NOW()</text>
+<text class="field" x="1072" y="300" font-size="11.5">metadata JSONB</text>
+<text class="field" x="1072" y="324" font-size="11.5">PK (id, created_at)</text>
+<text class="field" x="1072" y="348" font-size="11.5">CHK total &gt;= 0</text>
+<text class="field" x="1072" y="372" font-size="11.5">CHK status IN CREATED, PAID, SHIPPED, DELIVERED, CANCELLED, REFUNDED</text>
+<text class="field" x="1072" y="396" font-size="11.5">PARTITION BY RANGE (created_at)</text>
+<rect x="1560" y="520" width="430" height="270" rx="8" fill="#ffffff" stroke="#222" stroke-width="1.5"/>
+<rect x="1560" y="520" width="430" height="34" rx="8" fill="#eeeeee" stroke="#222" stroke-width="1.5"/>
+<text x="1572" y="543" font-size="14" font-weight="bold">order_details</text>
+<text class="field" x="1572" y="580" font-size="11.5">id BIGSERIAL PK</text>
+<text class="field" x="1572" y="604" font-size="11.5">order_id BIGINT FK orders(id, created_at)</text>
+<text class="field" x="1572" y="628" font-size="11.5">order_created_at TIMESTAMP FK orders(id, created_at)</text>
+<text class="field" x="1572" y="652" font-size="11.5">product_id BIGINT FK products(id)</text>
+<text class="field" x="1572" y="676" font-size="11.5">quantity INTEGER NOT NULL</text>
+<text class="field" x="1572" y="700" font-size="11.5">unit_price NUMERIC(12,2) NOT NULL</text>
+<text class="field" x="1572" y="724" font-size="11.5">FK (order_id, order_created_at) -&gt; orders(id, created_at) ON DELETE CASCADE</text>
+<text class="field" x="1572" y="748" font-size="11.5">CHK quantity &gt; 0</text>
+<text class="field" x="1572" y="772" font-size="11.5">CHK unit_price &gt;= 0</text>
+<rect x="1060" y="930" width="430" height="366" rx="8" fill="#ffffff" stroke="#222" stroke-width="1.5"/>
+<rect x="1060" y="930" width="430" height="34" rx="8" fill="#eeeeee" stroke="#222" stroke-width="1.5"/>
+<text x="1072" y="953" font-size="14" font-weight="bold">payments</text>
+<text class="field" x="1072" y="990" font-size="11.5">id BIGSERIAL PK</text>
+<text class="field" x="1072" y="1014" font-size="11.5">order_id BIGINT FK orders(id, created_at)</text>
+<text class="field" x="1072" y="1038" font-size="11.5">order_created_at TIMESTAMP FK orders(id, created_at)</text>
+<text class="field" x="1072" y="1062" font-size="11.5">payment_method VARCHAR(50) NOT NULL</text>
+<text class="field" x="1072" y="1086" font-size="11.5">payment_status VARCHAR(30) NOT NULL</text>
+<text class="field" x="1072" y="1110" font-size="11.5">external_reference VARCHAR(200)</text>
+<text class="field" x="1072" y="1134" font-size="11.5">payment_date TIMESTAMP PK NOT NULL DEFAULT NOW()</text>
+<text class="field" x="1072" y="1158" font-size="11.5">amount NUMERIC(12,2) NOT NULL</text>
+<text class="field" x="1072" y="1182" font-size="11.5">PK (id, payment_date)</text>
+<text class="field" x="1072" y="1206" font-size="11.5">FK (order_id, order_created_at) -&gt; orders(id, created_at) ON DELETE CASCADE</text>
+<text class="field" x="1072" y="1230" font-size="11.5">CHK amount &gt;= 0</text>
+<text class="field" x="1072" y="1254" font-size="11.5">CHK status IN PENDING, APPROVED, REJECTED, REFUNDED, CANCELLED</text>
+<text class="field" x="1072" y="1278" font-size="11.5">PARTITION BY RANGE (payment_date)</text>
+<rect x="1560" y="900" width="430" height="318" rx="8" fill="#ffffff" stroke="#222" stroke-width="1.5"/>
+<rect x="1560" y="900" width="430" height="34" rx="8" fill="#eeeeee" stroke="#222" stroke-width="1.5"/>
+<text x="1572" y="923" font-size="14" font-weight="bold">shipments</text>
+<text class="field" x="1572" y="960" font-size="11.5">id BIGSERIAL PK</text>
+<text class="field" x="1572" y="984" font-size="11.5">order_id BIGINT FK orders(id, created_at)</text>
+<text class="field" x="1572" y="1008" font-size="11.5">order_created_at TIMESTAMP FK orders(id, created_at)</text>
+<text class="field" x="1572" y="1032" font-size="11.5">carrier VARCHAR(100)</text>
+<text class="field" x="1572" y="1056" font-size="11.5">tracking_number VARCHAR(150)</text>
+<text class="field" x="1572" y="1080" font-size="11.5">shipment_status VARCHAR(30) NOT NULL DEFAULT &#x27;PENDING&#x27;</text>
+<text class="field" x="1572" y="1104" font-size="11.5">shipped_at TIMESTAMP</text>
+<text class="field" x="1572" y="1128" font-size="11.5">delivered_at TIMESTAMP</text>
+<text class="field" x="1572" y="1152" font-size="11.5">estimated_delivery_at TIMESTAMP</text>
+<text class="field" x="1572" y="1176" font-size="11.5">FK (order_id, order_created_at) -&gt; orders(id, created_at) ON DELETE CASCADE</text>
+<text class="field" x="1572" y="1200" font-size="11.5">CHK status IN PENDING, IN_TRANSIT, DELIVERED, FAILED, RETURNED</text>
+<rect x="1560" y="80" width="430" height="342" rx="8" fill="#ffffff" stroke="#222" stroke-width="1.5"/>
+<rect x="1560" y="80" width="430" height="34" rx="8" fill="#eeeeee" stroke="#222" stroke-width="1.5"/>
+<text x="1572" y="103" font-size="14" font-weight="bold">reviews</text>
+<text class="field" x="1572" y="140" font-size="11.5">id BIGSERIAL PK</text>
+<text class="field" x="1572" y="164" font-size="11.5">user_id BIGINT FK users(id)</text>
+<text class="field" x="1572" y="188" font-size="11.5">product_id BIGINT FK products(id)</text>
+<text class="field" x="1572" y="212" font-size="11.5">order_id BIGINT FK orders(id, created_at)</text>
+<text class="field" x="1572" y="236" font-size="11.5">order_created_at TIMESTAMP FK orders(id, created_at)</text>
+<text class="field" x="1572" y="260" font-size="11.5">rating INTEGER NOT NULL</text>
+<text class="field" x="1572" y="284" font-size="11.5">title VARCHAR(200)</text>
+<text class="field" x="1572" y="308" font-size="11.5">comment TEXT</text>
+<text class="field" x="1572" y="332" font-size="11.5">created_at TIMESTAMP NOT NULL DEFAULT NOW()</text>
+<text class="field" x="1572" y="356" font-size="11.5">FK (order_id, order_created_at) -&gt; orders(id, created_at) ON DELETE CASCADE</text>
+<text class="field" x="1572" y="380" font-size="11.5">CHK rating BETWEEN 1 AND 5</text>
+<text class="field" x="1572" y="404" font-size="11.5">UK (user_id, product_id, order_id)</text>
+<rect x="60" y="1190" width="430" height="246" rx="8" fill="#ffffff" stroke="#222" stroke-width="1.5"/>
+<rect x="60" y="1190" width="430" height="34" rx="8" fill="#eeeeee" stroke="#222" stroke-width="1.5"/>
+<text x="72" y="1213" font-size="14" font-weight="bold">transaction_history</text>
+<text class="field" x="72" y="1250" font-size="11.5">id BIGSERIAL PK</text>
+<text class="field" x="72" y="1274" font-size="11.5">entity_name VARCHAR(100) NOT NULL</text>
+<text class="field" x="72" y="1298" font-size="11.5">entity_id BIGINT NOT NULL</text>
+<text class="field" x="72" y="1322" font-size="11.5">event_type VARCHAR(100) NOT NULL</text>
+<text class="field" x="72" y="1346" font-size="11.5">payload JSONB</text>
+<text class="field" x="72" y="1370" font-size="11.5">created_at TIMESTAMP PK NOT NULL DEFAULT NOW()</text>
+<text class="field" x="72" y="1394" font-size="11.5">PK (id, created_at)</text>
+<text class="field" x="72" y="1418" font-size="11.5">PARTITION BY RANGE (created_at)</text>
+<rect x="560" y="1390" width="430" height="294" rx="8" fill="#ffffff" stroke="#222" stroke-width="1.5"/>
+<rect x="560" y="1390" width="430" height="34" rx="8" fill="#eeeeee" stroke="#222" stroke-width="1.5"/>
+<text x="572" y="1413" font-size="14" font-weight="bold">sync_audit</text>
+<text class="field" x="572" y="1450" font-size="11.5">id BIGSERIAL PK</text>
+<text class="field" x="572" y="1474" font-size="11.5">sync_name VARCHAR(100) NOT NULL</text>
+<text class="field" x="572" y="1498" font-size="11.5">source_system VARCHAR(50) NOT NULL DEFAULT &#x27;PostgreSQL&#x27;</text>
+<text class="field" x="572" y="1522" font-size="11.5">target_system VARCHAR(50) NOT NULL DEFAULT &#x27;MongoDB&#x27;</text>
+<text class="field" x="572" y="1546" font-size="11.5">status VARCHAR(30) NOT NULL</text>
+<text class="field" x="572" y="1570" font-size="11.5">records_processed INTEGER NOT NULL DEFAULT 0</text>
+<text class="field" x="572" y="1594" font-size="11.5">started_at TIMESTAMP NOT NULL DEFAULT NOW()</text>
+<text class="field" x="572" y="1618" font-size="11.5">finished_at TIMESTAMP</text>
+<text class="field" x="572" y="1642" font-size="11.5">error_message TEXT</text>
+<text class="field" x="572" y="1666" font-size="11.5">CHK status IN RUNNING, SUCCESS, FAILED</text>
+<rect x="1060" y="1370" width="430" height="180" rx="8" fill="#fafafa" stroke="#555"/>
+<text x="1078" y="1398" font-size="13" font-weight="bold">Leyenda:</text>
+<text x="1078" y="1420" font-size="13" >PK = Primary Key</text>
+<text x="1078" y="1442" font-size="13" >FK = Foreign Key</text>
+<text x="1078" y="1464" font-size="13" >UK = Unique Key</text>
+<text x="1078" y="1486" font-size="13" >CHK = Check constraint</text>
+<text x="1078" y="1508" font-size="13" >1:N = uno a muchos</text>
+<text x="1078" y="1530" font-size="13" >1:0..1 = uno a cero o uno</text>
+</svg>
