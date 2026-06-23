@@ -1,0 +1,7 @@
+engine,concurrent_users,total_requests,avg_latency_ms,p95_latency_ms,max_latency_ms,throughput_req_sec
+PostgreSQL,1,10,531.14,590.15,573.46,1.88
+MongoDB,1,10,728.96,866.35,825.29,1.37
+PostgreSQL,5,50,567.21,658.8,672.28,8.59
+MongoDB,5,50,730.7,782.26,790.94,6.82
+PostgreSQL,10,100,756.17,966.0,981.94,12.87
+MongoDB,10,100,804.16,922.33,937.31,12.35

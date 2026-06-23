@@ -26,7 +26,7 @@ Se diseñó una suite de pruebas con tres enfoques principales:
 Las pruebas fueron implementadas mediante scripts Python y SQL ubicados en la carpeta:
 
 ```text
-evaluation/
+evaluacion/
 ├── scripts/
 │   ├── 01_performance_concurrency.py
 │   ├── 02_scalability_dataset_growth.py
@@ -39,7 +39,7 @@ evaluation/
 El script utilizado fue:
 
 ```text
-evaluation/scripts/01_performance_concurrency.py
+evaluacion/scripts/01_performance_concurrency.py
 ```
 
 La prueba simuló usuarios concurrentes ejecutando consultas críticas sobre PostgreSQL y MongoDB.
@@ -69,7 +69,7 @@ Inicialmente se intentó una prueba con 25 usuarios concurrentes en PostgreSQL/S
 El script utilizado fue:
 
 ```text
-evaluation/scripts/02_scalability_dataset_growth.py
+evaluacion/scripts/02_scalability_dataset_growth.py
 ```
 
 Se evaluaron consultas con volúmenes crecientes de datos:
@@ -89,7 +89,7 @@ El objetivo fue observar la degradación del tiempo de respuesta a medida que au
 El archivo utilizado fue:
 
 ```text
-evaluation/scripts/03_complex_queries.sql
+evaluacion/scripts/03_complex_queries.sql
 ```
 
 Incluye consultas orientadas a:
@@ -512,7 +512,7 @@ Trade-off aceptado:
 Las evidencias de la evaluación deben organizarse en:
 
 ```text
-evaluation/
+evaluacion/
 ├── evidencias/
 │   ├── concurrency.png
 │   ├── scalability.png
