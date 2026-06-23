@@ -112,6 +112,47 @@ LEFT JOIN (
 
 
 -- ==========================================================
+-- 3. Direcciones desde customers + geolocation
+-- Usa PostGIS para poblar addresses.location
+-- ==========================================================
+
+INSERT INTO addresses (
+    user_id,
+    city,
+    country,
+    address,
+    postal_code,
+    location,
+    address_data
+)
+SELECT
+    u.id AS user_id,
+    c.customer_city AS city,
+    'Brazil' AS country,
+    'Address generated from Olist customer zip code' AS address,
+    c.customer_zip_code_prefix::TEXT AS postal_code,
+    CASE
+        WHEN g.avg_lng IS NOT NULL AND g.avg_lat IS NOT NULL THEN
+            ST_SetSRID(
+                ST_MakePoint(g.avg_lng, g.avg_lat),
+                4326
+            )::geography
+        ELSE NULL::geography
+    END AS location,
+    ROW(
+        'Address generated from Olist',
+        c.customer_zip_code_prefix::TEXT,
+        c.customer_city,
+        c.customer_state
+    )::address_type AS address_data
+FROM stg_olist_customers c
+JOIN users u
+    ON u.email = c.customer_id || '@olist.local'
+LEFT JOIN aux_geolocation_zip g
+    ON c.customer_zip_code_prefix = g.geolocation_zip_code_prefix;
+
+
+- ==========================================================
 -- 4. Productos desde products + order_items + sellers
 -- Usa JSONB y ARRAY
 -- ==========================================================
@@ -474,6 +515,9 @@ VALUES (
     NOW(),
     NOW()
 );
+
+
+
 
 
 -- ==========================================================

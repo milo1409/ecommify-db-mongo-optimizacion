@@ -92,3 +92,24 @@ CREATE TABLE stg_olist_order_reviews (
     review_creation_date TIMESTAMP,
     review_answer_timestamp TIMESTAMP
 );
+
+-- ==========================================================
+-- Auxiliar geolocalización por ZIP
+-- Reduce duplicados del dataset geolocation
+-- ==========================================================
+
+DROP TABLE IF EXISTS aux_geolocation_zip;
+
+CREATE TABLE aux_geolocation_zip AS
+SELECT
+    geolocation_zip_code_prefix,
+    AVG(geolocation_lat) AS avg_lat,
+    AVG(geolocation_lng) AS avg_lng
+FROM stg_olist_geolocation
+GROUP BY geolocation_zip_code_prefix;
+
+CREATE INDEX idx_aux_geolocation_zip
+ON aux_geolocation_zip(geolocation_zip_code_prefix);
+
+SELECT COUNT(*) AS total_zip_codes
+FROM aux_geolocation_zip;

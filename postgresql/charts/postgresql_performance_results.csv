@@ -1,0 +1,9 @@
+query,execution_before_ms,execution_after_ms,improvement_percent,index_type_used,interpretation
+Q1 Historial de órdenes por usuario,37.830,13.765,63.61,"B-tree + partition indexes","Mejora por uso de índice sobre user_id y created_at en tabla orders particionada"
+Q2 Ventas por categoría y mes,2431.127,1405.278,42.20,"B-tree + partition pruning","Mejora por particionamiento de orders y uso de índices en joins"
+Q3 Productos por atributos JSONB,3.250,4.544,-39.82,"GIN sobre JSONB","No presentó mejora porque la condición evaluada no retornó filas y el costo del índice superó el beneficio"
+Q4 Productos por tags ARRAY,0.138,0.151,-9.42,"GIN sobre ARRAY","No presentó mejora porque el tag olist está presente en casi todos los productos y tiene baja selectividad"
+Q5 Búsqueda textual con pg_trgm,15.547,2.223,85.70,"GIN + pg_trgm","Mejora significativa por uso de índice trigram sobre el nombre del producto"
+Q6 Consulta geoespacial con PostGIS,700.755,229.750,67.21,"GiST sobre geography","Mejora significativa por uso de índice espacial sobre addresses.location"
+Q7 Pagos aprobados por fecha,733.974,276.963,62.27,"B-tree + BRIN + partitioning","Mejora por particionamiento de payments e índices sobre estado y fecha"
+Q8 Historial transaccional por evento,1298.803,539.737,58.44,"B-tree + BRIN + partitioning","Mejora por particionamiento de transaction_history e índice sobre event_type"
