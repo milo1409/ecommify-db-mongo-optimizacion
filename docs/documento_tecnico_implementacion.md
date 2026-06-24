@@ -36,12 +36,12 @@ Las tablas relacionales creadas en el esquema `ecommify` son:
 
 ## 2.2 Estructura del Módulo PostgreSQL
 El código fuente relacional se encuentra organizado de la siguiente manera:
-* [00_extensions.sql](ecommify-db-mongo-optimizacion/postgresql/ddl/00_extensions.sql): Habilitación de extensiones (`postgis`, `pg_trgm`, `uuid-ossp`, `pgcrypto`).
-* [01_schema.sql](ecommify-db-mongo-optimizacion/postgresql/ddl/01_schema.sql): DDL principal de tablas, llaves primarias/foráneas y restricciones.
-* [02_partitioning.sql](ecommify-db-mongo-optimizacion/postgresql/ddl/02_partitioning.sql): Particionado declarativo por rango mensual.
-* [06_indexes.sql](ecommify-db-mongo-optimizacion/postgresql/ddl/06_indexes.sql): Índices B-Tree, GIN, GiST y BRIN.
-* [07_queries_before_indexes.sql](ecommify-db-mongo-optimizacion/postgresql/queries/07_queries_before_indexes.sql) y [08_queries_after_indexes.sql](ecommify-db-mongo-optimizacion/postgresql/queries/08_queries_after_indexes.sql): Scripts de análisis comparativo SQL con planes de ejecución.
-* [postgresql_performance_results.csv](ecommify-db-mongo-optimizacion/postgresql/results/postgresql_performance_results.csv): Resultados de rendimiento en Supabase.
+* [00_extensions.sql](https://github.com/milo1409/ecommify-db-mongo-optimizacion/blob/main/postgresql/ddl/00_extensions.sql): Habilitación de extensiones (`postgis`, `pg_trgm`, `uuid-ossp`, `pgcrypto`).
+* [01_schema.sql](https://github.com/milo1409/ecommify-db-mongo-optimizacion/blob/main/postgresql/ddl/01_schema.sql): DDL principal de tablas, llaves primarias/foráneas y restricciones.
+* [02_partitioning.sql](https://github.com/milo1409/ecommify-db-mongo-optimizacion/blob/main/postgresql/ddl/02_partitioning.sql): Particionado declarativo por rango mensual.
+* [06_indexes.sql](https://github.com/milo1409/ecommify-db-mongo-optimizacion/blob/main/postgresql/ddl/06_indexes.sql): Índices B-Tree, GIN, GiST y BRIN.
+* [07_queries_before_indexes.sql](https://github.com/milo1409/ecommify-db-mongo-optimizacion/blob/main/postgresql/queries/07_queries_before_indexes.sql) y [08_queries_after_indexes.sql](https://github.com/milo1409/ecommify-db-mongo-optimizacion/blob/main/postgresql/queries/08_queries_after_indexes.sql): Scripts de análisis comparativo SQL con planes de ejecución.
+* [postgresql_performance_results.csv](https://github.com/milo1409/ecommify-db-mongo-optimizacion/blob/main/postgresql/results/postgresql_performance_results.csv): Resultados de rendimiento en Supabase.
 
 ## 2.3 Tipos de Datos Avanzados y Extensiones
 * **JSONB (`products.product_metadata`)**: Almacena características y especificaciones técnicas flexibles del producto sin alterar el esquema.
@@ -74,12 +74,12 @@ Las colecciones creadas son:
 * **Bucket Pattern (`user_behavior`)**: Agrupa los eventos individuales de navegación de un usuario en documentos mensuales para optimizar la localidad y escrituras.
 
 ## 3.3 Validación Estructural (JSON Schema)
-Se implementaron validadores estrictos con JSON Schema (mediante [05_create_validation_schemas.py](ecommify-db-mongo-optimizacion/mongodb/scripts/05_create_validation_schemas.py)) para robustecer el catálogo, reseñas, recomendaciones y logs de comportamiento, impidiendo tipos incorrectos o valores fuera de rango.
+Se implementaron validadores estrictos con JSON Schema (mediante [05_create_validation_schemas.py](https://github.com/milo1409/ecommify-db-mongo-optimizacion/blob/main/mongodb/scripts/05_create_validation_schemas.py)) para robustecer el catálogo, reseñas, recomendaciones y logs de comportamiento, impidiendo tipos incorrectos o valores fuera de rango.
 
 ## 3.4 Estructura del Módulo MongoDB
-* [01_load_olist_dataset.py](ecommify-db-mongo-optimizacion/mongodb/scripts/01_load_olist_dataset.py): Script de carga de datos aplicando patrones.
-* [02_create_indexes.py](ecommify-db-mongo-optimizacion/mongodb/scripts/02_create_indexes.py): Creación de índices ESR, parciales y multikey.
-* [03_pipeline_optimization.py](ecommify-db-mongo-optimizacion/mongodb/scripts/03_pipeline_optimization.py): Optimización de pipelines de agregación.
+* [01_load_olist_dataset.py](https://github.com/milo1409/ecommify-db-mongo-optimizacion/blob/main/mongodb/scripts/01_load_olist_dataset.py): Script de carga de datos aplicando patrones.
+* [02_create_indexes.py](https://github.com/milo1409/ecommify-db-mongo-optimizacion/blob/main/mongodb/scripts/02_create_indexes.py): Creación de índices ESR, parciales y multikey.
+* [03_pipeline_optimization.py](https://github.com/milo1409/ecommify-db-mongo-optimizacion/blob/main/mongodb/scripts/03_pipeline_optimization.py): Optimización de pipelines de agregación.
 
 ---
 
@@ -89,9 +89,9 @@ Para mantener la consistencia eventual entre la base transaccional y la document
 
 ## 4.1 Flujo de Sincronización
 La sincronización se realiza mediante scripts de PyMongo y psycopg2:
-* [01_sync_postgres_to_mongo.py](ecommify-db-mongo-optimizacion/sync/01_sync_postgres_to_mongo.py): Script de extracción y transformación de datos.
-* [02_validar_sincronizacion.py](ecommify-db-mongo-optimizacion/sync/02_validar_sincronizacion.py): Validación y cruce de datos.
-* [sync_results.csv](ecommify-db-mongo-optimizacion/sync/results/sync_results.csv): Resultados de conteo final.
+* [01_sync_postgres_to_mongo.py](https://github.com/milo1409/ecommify-db-mongo-optimizacion/blob/main/sync/01_sync_postgres_to_mongo.py): Script de extracción y transformación de datos.
+* [02_validar_sincronizacion.py](https://github.com/milo1409/ecommify-db-mongo-optimizacion/blob/main/sync/02_validar_sincronizacion.py): Validación y cruce de datos.
+* [sync_results.csv](https://github.com/milo1409/ecommify-db-mongo-optimizacion/blob/main/sync/results/sync_results.csv): Resultados de conteo final.
 
 ## 4.2 Mapeo e Idempotencia
 La sincronización extrae los datos relacionales de productos, categorías e inventario y los unifica en la colección `product_catalog` de MongoDB aplicando operaciones de bulk write `UpdateOne` con la propiedad `upsert=True` basándose en el identificador único `product_id`. Esto garantiza la **idempotencia**: el proceso puede ejecutarse repetidamente en segundo plano, actualizando los documentos existentes y registrando los nuevos sin riesgo de duplicidad de datos. El histórico de auditoría queda registrado en la colección `sync_audit`.
@@ -102,14 +102,14 @@ La sincronización extrae los datos relacionales de productos, categorías e inv
 
 ## 5.1 Metodología de Pruebas Aplicada
 Se diseñó y ejecutó una suite de pruebas formales para medir la concurrencia y la escalabilidad bajo cargas controladas:
-1. **Pruebas de Carga Concurrente ([01_performance_concurrency.py](ecommify-db-mongo-optimizacion/evaluacion/scripts/01_performance_concurrency.py))**: Ejecución de consultas concurrentes mediante un ThreadPool con niveles de 1, 5 y 10 usuarios virtuales (VUs).
-2. **Pruebas de Escalabilidad con Dataset Creciente ([02_scalability_dataset_growth.py](ecommify-db-mongo-optimizacion/evaluacion/scripts/02_scalability_dataset_growth.py))**: Medición del impacto en latencia al procesar datasets desde 1,000 hasta 50,000 registros de forma incremental.
-3. **Pruebas de Consultas Complejas ([03_complex_queries.sql](ecommify-db-mongo-optimizacion/evaluacion/scripts/03_complex_queries.sql))**: Consultas analíticas pesadas (dashboard de ventas, bajo stock y pagos).
+1. **Pruebas de Carga Concurrente ([01_performance_concurrency.py](https://github.com/milo1409/ecommify-db-mongo-optimizacion/blob/main/evaluacion/scripts/01_performance_concurrency.py))**: Ejecución de consultas concurrentes mediante un ThreadPool con niveles de 1, 5 y 10 usuarios virtuales (VUs).
+2. **Pruebas de Escalabilidad con Dataset Creciente ([02_scalability_dataset_growth.py](https://github.com/milo1409/ecommify-db-mongo-optimizacion/blob/main/evaluacion/scripts/02_scalability_dataset_growth.py))**: Medición del impacto en latencia al procesar datasets desde 1,000 hasta 50,000 registros de forma incremental.
+3. **Pruebas de Consultas Complejas ([03_complex_queries.sql](https://github.com/milo1409/ecommify-db-mongo-optimizacion/blob/main/evaluacion/scripts/03_complex_queries.sql))**: Consultas analíticas pesadas (dashboard de ventas, bajo stock y pagos).
 
 ---
 
 ## 5.2 Resultados Cuantitativos de Pruebas de Carga y Concurrencia
-Los datos obtenidos de latencia y rendimiento se detallan en [performance_concurrency_results.csv](ecommify-db-mongo-optimizacion/evaluacion/results/performance_concurrency_results.csv):
+Los datos obtenidos de latencia y rendimiento se detallan en [performance_concurrency_results.csv](https://github.com/milo1409/ecommify-db-mongo-optimizacion/blob/main/evaluacion/results/performance_concurrency_results.csv):
 
 | Motor | Usuarios Concurrentes | Solicitudes Totales | Latencia Promedio (ms) | Latencia P95 (ms) | Throughput (req/s) |
 | :--- | :---: | :---: | :---: | :---: | :---: |
@@ -126,7 +126,7 @@ PostgreSQL/Supabase demostró latencias promedio y rendimiento (Throughput) lige
 ---
 
 ## 5.3 Resultados Cuantitativos de Escalabilidad con Dataset Creciente
-Los resultados detallados se encuentran en [scalability_dataset_growth_results.csv](ecommify-db-mongo-optimizacion/evaluacion/results/scalability_dataset_growth_results.csv):
+Los resultados detallados se encuentran en [scalability_dataset_growth_results.csv](https://github.com/milo1409/ecommify-db-mongo-optimizacion/blob/main/evaluacion/results/scalability_dataset_growth_results.csv):
 
 | Registros Evaluados | PostgreSQL Latencia (ms) | MongoDB Latencia (ms) |
 | :---: | :---: | :---: |
@@ -146,10 +146,10 @@ PostgreSQL muestra un comportamiento de latencia altamente estable. Después del
 Las gráficas de rendimiento comparativo fueron generadas de forma automática mediante Python y se incrustan en formato vectorial:
 
 ### Gráfica de Latencia de Concurrencia:
-![Concurrencia: Latencia Promedio (ms)](ecommify-db-mongo-optimizacion/evaluacion/results/concurrency_latency.svg)
+![Concurrencia: Latencia Promedio (ms)](https://github.com/milo1409/ecommify-db-mongo-optimizacion/blob/main/evaluacion/results/concurrency_latency.svg)
 
 ### Gráfica de Escalabilidad de Dataset Creciente:
-![Escalabilidad: dataset limit growth](ecommify-db-mongo-optimizacion/evaluacion/results/dataset_scalability.svg)
+![Escalabilidad: dataset limit growth](https://github.com/milo1409/ecommify-db-mongo-optimizacion/blob/main/evaluacion/results/dataset_scalability.svg)
 
 ---
 
