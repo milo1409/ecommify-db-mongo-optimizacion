@@ -39,6 +39,7 @@ El código fuente relacional se encuentra organizado de la siguiente manera:
 * [00_extensions.sql](https://github.com/milo1409/ecommify-db-mongo-optimizacion/blob/main/postgresql/ddl/00_extensions.sql): Habilitación de extensiones (`postgis`, `pg_trgm`, `uuid-ossp`, `pgcrypto`).
 * [01_schema.sql](https://github.com/milo1409/ecommify-db-mongo-optimizacion/blob/main/postgresql/ddl/01_schema.sql): DDL principal de tablas, llaves primarias/foráneas y restricciones.
 * [02_partitioning.sql](https://github.com/milo1409/ecommify-db-mongo-optimizacion/blob/main/postgresql/ddl/02_partitioning.sql): Particionado declarativo por rango mensual.
+* [06_indexes.sql](https://github.com/milo1409/ecommify-db-mongo-optimizacion/blob/main/postgresql/ddl/05_indexes.sql): Índices B-Tree, GIN, GiST y BRIN.
 * [07_queries_before_indexes.sql](https://github.com/milo1409/ecommify-db-mongo-optimizacion/blob/main/postgresql/ddl/07_queries_before_indexes.sql) y [08_queries_after_indexes.sql](https://github.com/milo1409/ecommify-db-mongo-optimizacion/blob/main/postgresql/ddl/08_queries_after_indexes.sql): Scripts de análisis comparativo SQL con planes de ejecución.
 * [postgresql_performance_results.csv](https://github.com/milo1409/ecommify-db-mongo-optimizacion/blob/main/postgresql/results/postgresql_performance_results.csv): Resultados de rendimiento en Supabase.
 
