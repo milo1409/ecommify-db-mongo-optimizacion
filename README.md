@@ -1,5 +1,11 @@
 # Ecommify DB Optimization
 
+## Integrantes - Equipo E26
+
+- Camilo Andres Porras Martinez
+- Oscar Eduardo Clavijo Alarcon
+- Edward Daniel Porras Martin
+
 ## Descripción del proyecto
 
 Este repositorio contiene la implementación de una arquitectura híbrida de bases de datos para la plataforma **Ecommify**, una solución de comercio electrónico diseñada con enfoque Cloud Native, microservicios y arquitectura orientada a eventos.
