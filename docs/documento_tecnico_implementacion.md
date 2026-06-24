@@ -36,21 +36,12 @@ Las tablas relacionales creadas en el esquema `ecommify` son:
 
 ## 2.2 Estructura del Módulo PostgreSQL
 El código fuente relacional se encuentra organizado de la siguiente manera:
-<<<<<<< HEAD
 * [00_extensions.sql](https://github.com/milo1409/ecommify-db-mongo-optimizacion/blob/main/postgresql/ddl/00_extensions.sql): Habilitación de extensiones (`postgis`, `pg_trgm`, `uuid-ossp`, `pgcrypto`).
 * [01_schema.sql](https://github.com/milo1409/ecommify-db-mongo-optimizacion/blob/main/postgresql/ddl/01_schema.sql): DDL principal de tablas, llaves primarias/foráneas y restricciones.
 * [02_partitioning.sql](https://github.com/milo1409/ecommify-db-mongo-optimizacion/blob/main/postgresql/ddl/02_partitioning.sql): Particionado declarativo por rango mensual.
 * [06_indexes.sql](https://github.com/milo1409/ecommify-db-mongo-optimizacion/blob/main/postgresql/ddl/06_indexes.sql): Índices B-Tree, GIN, GiST y BRIN.
 * [07_queries_before_indexes.sql](https://github.com/milo1409/ecommify-db-mongo-optimizacion/blob/main/postgresql/queries/07_queries_before_indexes.sql) y [08_queries_after_indexes.sql](https://github.com/milo1409/ecommify-db-mongo-optimizacion/blob/main/postgresql/queries/08_queries_after_indexes.sql): Scripts de análisis comparativo SQL con planes de ejecución.
 * [postgresql_performance_results.csv](https://github.com/milo1409/ecommify-db-mongo-optimizacion/blob/main/postgresql/results/postgresql_performance_results.csv): Resultados de rendimiento en Supabase.
-=======
-* [00_extensions.sql](postgresql/ddl/00_extensions.sql): Habilitación de extensiones (`postgis`, `pg_trgm`, `uuid-ossp`, `pgcrypto`).
-* [01_schema.sql](ecommify-db-mongo-optimizacion/postgresql/ddl/01_schema.sql): DDL principal de tablas, llaves primarias/foráneas y restricciones.
-* [02_partitioning.sql](ecommify-db-mongo-optimizacion/postgresql/ddl/02_partitioning.sql): Particionado declarativo por rango mensual.
-* [06_indexes.sql](ecommify-db-mongo-optimizacion/postgresql/ddl/06_indexes.sql): Índices B-Tree, GIN, GiST y BRIN.
-* [07_queries_before_indexes.sql](ecommify-db-mongo-optimizacion/postgresql/queries/07_queries_before_indexes.sql) y [08_queries_after_indexes.sql](ecommify-db-mongo-optimizacion/postgresql/queries/08_queries_after_indexes.sql): Scripts de análisis comparativo SQL con planes de ejecución.
-* [postgresql_performance_results.csv](ecommify-db-mongo-optimizacion/postgresql/results/postgresql_performance_results.csv): Resultados de rendimiento en Supabase.
->>>>>>> 6ae76b92f34fb2b104e43193674a89c6bf08e122
 
 ## 2.3 Tipos de Datos Avanzados y Extensiones
 * **JSONB (`products.product_metadata`)**: Almacena características y especificaciones técnicas flexibles del producto sin alterar el esquema.
