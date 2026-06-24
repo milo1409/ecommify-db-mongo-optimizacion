@@ -36,7 +36,7 @@ Las tablas relacionales creadas en el esquema `ecommify` son:
 
 ## 2.2 Estructura del Módulo PostgreSQL
 El código fuente relacional se encuentra organizado de la siguiente manera:
-* [00_extensions.sql](ecommify-db-mongo-optimizacion/postgresql/ddl/00_extensions.sql): Habilitación de extensiones (`postgis`, `pg_trgm`, `uuid-ossp`, `pgcrypto`).
+* [00_extensions.sql](postgresql/ddl/00_extensions.sql): Habilitación de extensiones (`postgis`, `pg_trgm`, `uuid-ossp`, `pgcrypto`).
 * [01_schema.sql](ecommify-db-mongo-optimizacion/postgresql/ddl/01_schema.sql): DDL principal de tablas, llaves primarias/foráneas y restricciones.
 * [02_partitioning.sql](ecommify-db-mongo-optimizacion/postgresql/ddl/02_partitioning.sql): Particionado declarativo por rango mensual.
 * [06_indexes.sql](ecommify-db-mongo-optimizacion/postgresql/ddl/06_indexes.sql): Índices B-Tree, GIN, GiST y BRIN.
